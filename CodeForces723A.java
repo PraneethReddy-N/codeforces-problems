@@ -17,7 +17,6 @@ public class CodeForces723A{
         System.out.println(count);
         in.close();
 
-            //testing git push from this branch
 
     }
 }
