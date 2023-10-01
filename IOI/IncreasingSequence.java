@@ -2,29 +2,32 @@ import java.io.*;
 import java.util.*;
 
 public class IncreasingSequence {
-    public static void main(String[] args) throws IOException{
-         BufferedReader f = new BufferedReader(new InputStreamReader(System.in));
+    public static void main(String[] args) throws IOException {
+        BufferedReader f = new BufferedReader(new InputStreamReader(System.in));
         PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
         StringTokenizer st = new StringTokenizer(f.readLine());
         int t = Integer.parseInt(st.nextToken());
-        for(int i = 0;i<t;i++){
-            StringTokenizer nval = new StringTokenizer(f.readLine());
-            int n = Integer.parseInt(nval.nextToken());
-            int []a = new int[n];
-                String[] Aarray = f.readLine().split(" ");
-                for(int x= 0;x<Aarray.length;x++){
-                    a[x] = Integer.parseInt(Aarray[x]);
-                }
-                 int v= 1;
-            for(int z : a){
-                if(v == z){
-                    v++;
-                }
-                v++;
+        for (int i = 0; i < t; i++) {
+            int n = Integer.parseInt(f.readLine());
+            int[] a = new int[n];
+            StringTokenizer arrayTokens = new StringTokenizer(f.readLine());
+            for (int j = 0; j < n; j++) {
+                a[j] = Integer.parseInt(arrayTokens.nextToken());
             }
-            out.println(v-1);
+            
+            int count = 0;
+            int max = a[0];
+            for (int k = 1; k < a.length; k++) {
+                if (max >= a[k]) {
+                    count++;
+                }
+                max = Math.max(max, a[k]);
             }
-            out.flush();
+            if (a[0] != 1 || a[n - 1] != n) {
+                count = Math.max(count, 1);
+            }
+            out.println(count);
+        }
+        out.flush();
     }
 }
-    
