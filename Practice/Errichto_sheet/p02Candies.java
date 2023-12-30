@@ -12,6 +12,7 @@ public class p02Candies {
         int arr[] = new int[n];
         for(int i = 0;i<n;i++){
             arr[i] = Integer.parseInt(values[i]);
+            //test pusj
         }
         String[] abValues = read.readLine().split(" ");
         int a = Integer.parseInt(abValues[0]);
